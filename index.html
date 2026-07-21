@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Long Duc Vu — AI Engineer · Trustworthy AI Evaluation</title>
+<meta name="description" content="Long Duc Vu — AI engineer at FPT Software and prospective PhD student (Fall 2027). I study how to make claims about AI-agent reliability grounded in external, verifiable evidence rather than the agent's own account.">
+<style>
+  :root{
+    --ground:#FCFCFD; --surface:#F1F3F6; --ink:#171A21; --muted:#586074;
+    --line:#E4E7EC; --accent:#1F4E7A; --accent-2:#2D6CB0; --sel:#D9E6F5;
+    --font-serif:"Charter","Iowan Old Style","Palatino Linotype",Palatino,Georgia,Cambria,"Times New Roman",serif;
+    --font-sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --font-mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,"Liberation Mono",monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{
+      --ground:#0E1117; --surface:#161A22; --ink:#E9ECF2; --muted:#9AA3B2;
+      --line:#242A34; --accent:#7FB0E6; --accent-2:#A9CBEE; --sel:#1C3350;
+    }
+  }
+  :root[data-theme="light"]{
+    --ground:#FCFCFD; --surface:#F1F3F6; --ink:#171A21; --muted:#586074;
+    --line:#E4E7EC; --accent:#1F4E7A; --accent-2:#2D6CB0; --sel:#D9E6F5;
+  }
+  :root[data-theme="dark"]{
+    --ground:#0E1117; --surface:#161A22; --ink:#E9ECF2; --muted:#9AA3B2;
+    --line:#242A34; --accent:#7FB0E6; --accent-2:#A9CBEE; --sel:#1C3350;
+  }
+
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:var(--font-sans); font-size:17px; line-height:1.62;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--sel);}
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{color:var(--accent-2); text-decoration:underline; text-underline-offset:3px; text-decoration-thickness:1px;}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px;}
+
+  .wrap{
+    max-width:1060px; margin:0 auto; padding:72px 32px 64px;
+    display:grid; grid-template-columns:270px 1fr; gap:72px; align-items:start;
+  }
+
+  /* ---- identity rail ---- */
+  .rail{position:sticky; top:56px; display:flex; flex-direction:column; gap:26px;}
+  .avatar,.monogram{
+    width:112px; height:112px; border-radius:4px; border:1px solid var(--line);
+    display:block; object-fit:cover;
+  }
+  .monogram{
+    display:grid; place-items:center; background:var(--surface); color:var(--accent);
+    font-family:var(--font-serif); font-size:2.1rem; letter-spacing:.02em; user-select:none;
+  }
+  .name{font-family:var(--font-serif); font-size:1.62rem; line-height:1.12; margin:0; letter-spacing:-.01em;}
+  .name-native{font-size:.86rem; color:var(--muted); margin-top:4px; font-style:italic;}
+  .role{margin:14px 0 0; font-size:.95rem; color:var(--ink);}
+  .role .sub{display:block; color:var(--muted); font-size:.88rem; margin-top:2px;}
+  .loc{
+    font-family:var(--font-mono); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--muted); margin-top:10px;
+  }
+  .links{display:flex; flex-direction:column; gap:7px; font-size:.92rem;}
+  .links a{display:inline-flex; align-items:baseline; gap:8px;}
+  .links .tag{font-family:var(--font-mono); font-size:.68rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); min-width:64px;}
+  nav.toc{display:flex; flex-direction:column; gap:6px; border-top:1px solid var(--line); padding-top:20px;}
+  nav.toc a{
+    font-family:var(--font-mono); font-size:.74rem; letter-spacing:.05em; text-transform:uppercase;
+    color:var(--muted);
+  }
+  nav.toc a:hover{color:var(--accent); text-decoration:none;}
+
+  /* ---- main column ---- */
+  main{max-width:660px; min-width:0;}
+  .lede{margin-bottom:56px;}
+  .eyebrow{
+    font-family:var(--font-mono); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); margin:0 0 14px;
+  }
+  .lede h1{
+    font-family:var(--font-serif); font-weight:600; font-size:2.35rem; line-height:1.12;
+    letter-spacing:-.015em; margin:0; text-wrap:balance;
+  }
+  .lede p{color:var(--muted); font-size:1.05rem; margin:18px 0 0; max-width:60ch;}
+
+  section{margin-bottom:52px;}
+  .s-head{display:flex; align-items:baseline; gap:14px; margin:0 0 20px; padding-bottom:10px; border-bottom:1px solid var(--line);}
+  .s-head h2{font-family:var(--font-serif); font-weight:600; font-size:1.28rem; margin:0; letter-spacing:-.01em;}
+  .s-head .idx{font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted);}
+  p{margin:0 0 16px;}
+  p:last-child{margin-bottom:0;}
+  section > p{max-width:65ch;}
+
+  /* research threads */
+  .threads{display:flex; flex-direction:column; gap:22px; margin-top:22px;}
+  .thread{display:grid; grid-template-columns:auto 1fr; gap:18px; padding-left:2px;}
+  .thread .num{
+    font-family:var(--font-mono); font-size:.78rem; color:var(--accent); padding-top:3px;
+    border-left:2px solid var(--accent); padding-left:14px; font-variant-numeric:tabular-nums;
+  }
+  .thread h3{font-family:var(--font-sans); font-weight:650; font-size:1rem; margin:0 0 5px;}
+  .thread p{color:var(--muted); font-size:.96rem; margin:0; max-width:60ch;}
+
+  /* work / publication items */
+  .item{padding:18px 0; border-top:1px solid var(--line);}
+  .item:first-of-type{border-top:0; padding-top:4px;}
+  .item .kicker{font-family:var(--font-mono); font-size:.68rem; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); display:block; margin-bottom:7px;}
+  .item h3{font-family:var(--font-serif); font-weight:600; font-size:1.06rem; line-height:1.3; margin:0 0 7px;}
+  .item p{color:var(--muted); font-size:.96rem; margin:0; max-width:62ch;}
+
+  /* background grid */
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:36px;}
+  .cols h3{font-family:var(--font-mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 12px; font-weight:500;}
+  .entry{margin-bottom:16px;}
+  .entry .t{font-weight:600; font-size:.98rem;}
+  .entry .d{color:var(--muted); font-size:.9rem; margin-top:2px;}
+
+  .contact p{max-width:60ch;}
+  .contact .links{margin-top:16px; font-size:.98rem;}
+
+  footer{
+    margin-top:8px; padding-top:22px; border-top:1px solid var(--line);
+    font-family:var(--font-mono); font-size:.7rem; letter-spacing:.05em; color:var(--muted);
+  }
+
+  /* motion */
+  .lede,section,footer{animation:rise .6s cubic-bezier(.2,.7,.2,1) both;}
+  section:nth-of-type(1){animation-delay:.05s;}
+  section:nth-of-type(2){animation-delay:.1s;}
+  section:nth-of-type(3){animation-delay:.15s;}
+  @keyframes rise{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:none;}}
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important; transition:none !important;}
+  }
+
+  /* responsive */
+  @media (max-width:860px){
+    .wrap{grid-template-columns:1fr; gap:44px; padding:44px 24px 56px;}
+    .rail{position:static; flex-direction:row; flex-wrap:wrap; align-items:center; gap:20px 28px;}
+    .rail .id{display:flex; align-items:center; gap:18px; flex:1 1 100%;}
+    nav.toc{display:none;}
+    .lede h1{font-size:2rem;}
+  }
+  @media (max-width:520px){
+    body{font-size:16px;}
+    .cols{grid-template-columns:1fr; gap:24px;}
+    .thread{grid-template-columns:1fr;}
+    .thread .num{border-left:0; border-top:2px solid var(--accent); padding-left:0; padding-top:8px; width:fit-content;}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ===================== IDENTITY RAIL ===================== -->
+    <aside class="rail">
+      <div class="id">
+        <!-- To use a real photo, replace the monogram <div> below with:
+             <img class="avatar" src="profile.jpg" alt="Long Duc Vu"> -->
+        <div class="monogram" aria-hidden="true">LDV</div>
+        <div>
+          <h1 class="name">Long Duc Vu</h1>
+          <div class="name-native">Vũ Đức Long</div>
+        </div>
+      </div>
+
+      <div>
+        <p class="role">AI Engineer, FPT Software
+          <span class="sub">Prospective PhD student · Fall 2027</span>
+        </p>
+        <p class="loc">Hanoi, Vietnam</p>
+      </div>
+
+      <div class="links">
+        <a href="mailto:longvdairesearch@gmail.com"><span class="tag">Email</span>longvdairesearch@gmail.com</a>
+        <a href="https://www.linkedin.com/in/duclongvu2609" target="_blank" rel="noopener"><span class="tag">LinkedIn</span>duclongvu2609</a>
+      </div>
+
+      <nav class="toc" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#work">Selected work</a>
+        <a href="#publications">Publications</a>
+        <a href="#background">Background</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </aside>
+
+    <!-- ===================== MAIN ===================== -->
+    <main>
+      <div class="lede">
+        <p class="eyebrow">AI Engineer · Trustworthy AI Evaluation</p>
+        <h1>Making claims about an AI agent that don't require trusting the agent.</h1>
+        <p>I build LLM-agent platforms and an evaluation framework for coding-agent reliability, and I care about one thing above all: grounding a claim about what an agent did in evidence external to the agent's own account of itself.</p>
+      </div>
+
+      <section id="about">
+        <div class="s-head"><span class="idx">§</span><h2>About</h2></div>
+        <p>I'm an AI engineer at FPT Software in Hanoi, where I build LLM-agent platforms and an evaluation framework for coding-agent reliability. I hold a five-year Degree of Engineer in Applied Mathematics and Informatics from Hanoi University of Science and Technology, and my training is strongly mathematical — optimization, probability, and numerical modeling.</p>
+        <p>Across my work runs a single question: how do you establish what an AI agent actually did — that a scaffold made it better, that a change satisfies an invariant, that a repair converged — without relying on the agent's own narration? I try to ground each such claim in evidence external to the agent: pre-registered discrimination statistics, SMT-solver verdicts, execution traces.</p>
+        <p>I'm applying to PhD programs in the Fall 2027 cycle, to work on trustworthy, verifiable evaluation of AI systems.</p>
+      </section>
+
+      <section id="research">
+        <div class="s-head"><span class="idx">§</span><h2>Research directions</h2></div>
+        <p>My program develops a way to measure coding-agent reliability from evidence external to the agent — at the budget of a solo researcher, without a lab's worth of annotators or a learned reward model whose own reliability would need auditing in turn. It runs across three connected lines.</p>
+        <div class="threads">
+          <div class="thread">
+            <div class="num">01</div>
+            <div>
+              <h3>Shape vs. substance</h3>
+              <p>A pre-registered, cross-model audit separating what a coding-agent scaffold changes in checkable output <em>shape</em> (file paths, schema conformance) from what it changes in reasoning <em>substance</em> — built around an always-pass discrimination filter that flags evaluation checks passing regardless of experimental condition.</p>
+            </div>
+          </div>
+          <div class="thread">
+            <div class="num">02</div>
+            <div>
+              <h3>Where formal verification ends</h3>
+              <p>Classifying real code invariants by the SMT fragment they require, measuring the coverage ceiling of a ground solver, and defining an escalation policy for the remainder where an LLM judge is unavoidable — trusting a solver verdict where one exists, and knowing exactly where one does not.</p>
+            </div>
+          </div>
+          <div class="thread">
+            <div class="num">03</div>
+            <div>
+              <h3>Counterexample-guided repair</h3>
+              <p>Isolating which feedback signal — a concrete Z3 counterexample, a raw test-failure string, or generic self-critique — makes an agent's self-repair converge fastest, with convergence measured by a solver rather than by the agent's report of success.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="s-head"><span class="idx">§</span><h2>Selected work</h2></div>
+        <div class="item">
+          <span class="kicker">First-author · preprint in progress · 2026</span>
+          <h3>Shape vs. Substance: A Pre-Registered, Cross-Model Audit of What Coding-Agent Scaffolds Actually Change</h3>
+          <p>A 17-run pilot found that measured scaffold gains concentrate in checkable output shape rather than reasoning substance, with several rubric checks passing regardless of condition. The full study scales to roughly 120 runs across three model families under a pre-registered analysis plan. Target: arXiv, late 2026.</p>
+        </div>
+        <div class="item">
+          <span class="kicker">Software · core developer</span>
+          <h3>agentic-sdlc</h3>
+          <p>An LLM-agent framework for the software-development lifecycle, with a working evaluation harness for coding-agent reliability. I authored the majority of the codebase. Repository private — available on request.</p>
+        </div>
+      </section>
+
+      <section id="publications">
+        <div class="s-head"><span class="idx">§</span><h2>Publications</h2></div>
+        <div class="item">
+          <span class="kicker">Peer-reviewed journal · 2021</span>
+          <!-- TODO: replace with the exact title, full author list, volume/issue, and DOI from your CV -->
+          <h3>Model-validation study — <em>Environmental Science and Pollution Research</em> (2021)</h3>
+          <p>Developed the mathematical validation method and wrote the code that tested the model against observed data. Full citation available on request.</p>
+        </div>
+      </section>
+
+      <section id="background">
+        <div class="s-head"><span class="idx">§</span><h2>Background</h2></div>
+        <div class="cols">
+          <div>
+            <h3>Experience</h3>
+            <!-- TODO: add start year / date range if you'd like it shown -->
+            <div class="entry">
+              <div class="t">FPT Software — AI Engineer</div>
+              <div class="d">LLM-agent platforms; evaluation framework for coding-agent reliability. Hanoi, Vietnam.</div>
+            </div>
+          </div>
+          <div>
+            <h3>Education</h3>
+            <!-- TODO: add graduation year if you'd like it shown -->
+            <div class="entry">
+              <div class="t">Hanoi University of Science and Technology</div>
+              <div class="d">Degree of Engineer (five-year program), Applied Mathematics and Informatics.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="s-head"><span class="idx">§</span><h2>Contact</h2></div>
+        <p>The best way to reach me is by email. I'm actively looking for PhD opportunities for the Fall 2027 cycle and welcome conversations about research fit.</p>
+        <div class="links">
+          <a href="mailto:longvdairesearch@gmail.com"><span class="tag">Email</span>longvdairesearch@gmail.com</a>
+          <a href="https://www.linkedin.com/in/duclongvu2609" target="_blank" rel="noopener"><span class="tag">LinkedIn</span>linkedin.com/in/duclongvu2609</a>
+        </div>
+      </section>
+
+      <footer>© 2026 Long Duc Vu · Hanoi, Vietnam · Last updated July 2026</footer>
+    </main>
+  </div>
+</body>
+</html>
