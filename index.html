@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Long Duc Vu — AI Engineer · Trustworthy AI Evaluation</title>
-<meta name="description" content="Long Duc Vu — AI engineer at FPT Software and prospective PhD student (Fall 2027). I study how to make claims about AI-agent reliability grounded in external, verifiable evidence rather than the agent's own account.">
+<title>Long Duc Vu · AI Engineer · Trustworthy AI Evaluation</title>
+<meta name="description" content="Long Duc Vu, AI engineer at FPT Software and prospective PhD student (Fall 2027). I study how to make claims about AI-agent reliability grounded in external, verifiable evidence rather than the agent's own account.">
 <style>
   :root{
     --ground:#FCFCFD; --surface:#F1F3F6; --ink:#171A21; --muted:#586074;
@@ -158,7 +158,7 @@
     <!-- ===================== IDENTITY RAIL ===================== -->
     <aside class="rail">
       <div class="id">
-        <img class="avatar" src="profile.jpg" alt="Long Duc Vu — portrait">
+        <img class="avatar" src="profile.jpg" alt="Portrait of Long Duc Vu">
         <div>
           <h1 class="name">Long Duc Vu</h1>
           <div class="name-native">Vũ Đức Long</div>
@@ -197,35 +197,35 @@
 
       <section id="about">
         <div class="s-head"><span class="idx">§</span><h2>About</h2></div>
-        <p>I'm an AI engineer at <a href="https://fpt.com/vi/ve-fpt" target="_blank" rel="noopener">FPT Software</a> in Hanoi, where I build LLM-agent platforms and an evaluation framework for coding-agent reliability. I hold a five-year Degree of Engineer in Applied Mathematics and Informatics from Hanoi University of Science and Technology, and my training is strongly mathematical — optimization, probability, and numerical modeling.</p>
-        <p>As a Technical Leader, I have delivered engineering work for enterprise clients — building computing systems, implementing floating-point computation, and verifying the correctness of numerical algorithms. In that work correctness is not negotiable, which is the same concern that runs through my research on verifiable AI.</p>
-        <p>Across my work runs a single question: how do you establish what an AI agent actually did — that a scaffold made it better, that a change satisfies an invariant, that a repair converged — without relying on the agent's own narration? I try to ground each such claim in evidence external to the agent: pre-registered discrimination statistics, SMT-solver verdicts, execution traces.</p>
+        <p>I'm an AI engineer at <a href="https://fpt.com/vi/ve-fpt" target="_blank" rel="noopener">FPT Software</a> in Hanoi, where I build LLM-agent platforms and an evaluation framework for coding-agent reliability. I hold a five-year Degree of Engineer in Applied Mathematics and Informatics from Hanoi University of Science and Technology, and my training is strongly mathematical: optimization, probability, and numerical modeling.</p>
+        <p>As a Technical Leader, I have delivered engineering work for enterprise clients, building computing systems, implementing floating-point computation, and verifying the correctness of numerical algorithms. In that work correctness is not negotiable, which is the same concern that runs through my research on verifiable AI.</p>
+        <p>Across my work runs a single question: how do you establish what an AI agent actually did (that a scaffold made it better, that a change satisfies an invariant, that a repair converged) without relying on the agent's own narration? I try to ground each such claim in evidence external to the agent: pre-registered discrimination statistics, SMT-solver verdicts, execution traces.</p>
         <p>I'm applying to PhD programs in the Fall 2027 cycle, to work on trustworthy, verifiable evaluation of AI systems.</p>
       </section>
 
       <section id="research">
         <div class="s-head"><span class="idx">§</span><h2>Research directions</h2></div>
-        <p>My program develops a way to measure coding-agent reliability from evidence external to the agent — at the budget of a solo researcher, without a lab's worth of annotators or a learned reward model whose own reliability would need auditing in turn. It runs across three connected lines.</p>
+        <p>My program develops a way to measure coding-agent reliability from evidence external to the agent, at the budget of a solo researcher, without a lab's worth of annotators or a learned reward model whose own reliability would need auditing in turn. It runs across three connected lines.</p>
         <div class="threads">
           <div class="thread">
             <div class="num">01</div>
             <div>
               <h3>Shape vs. substance</h3>
-              <p>A pre-registered, cross-model audit separating what a coding-agent scaffold changes in checkable output <em>shape</em> (file paths, schema conformance) from what it changes in reasoning <em>substance</em> — built around an always-pass discrimination filter that flags evaluation checks passing regardless of experimental condition.</p>
+              <p>A pre-registered, cross-model audit separating what a coding-agent scaffold changes in checkable output <em>shape</em> (file paths, schema conformance) from what it changes in reasoning <em>substance</em>, built around an always-pass discrimination filter that flags evaluation checks passing regardless of experimental condition.</p>
             </div>
           </div>
           <div class="thread">
             <div class="num">02</div>
             <div>
               <h3>Where formal verification ends</h3>
-              <p>Classifying real code invariants by the SMT fragment they require, measuring the coverage ceiling of a ground solver, and defining an escalation policy for the remainder where an LLM judge is unavoidable — trusting a solver verdict where one exists, and knowing exactly where one does not.</p>
+              <p>Classifying real code invariants by the SMT fragment they require, measuring the coverage ceiling of a ground solver, and defining an escalation policy for the remainder where an LLM judge is unavoidable: trusting a solver verdict where one exists, and knowing exactly where one does not.</p>
             </div>
           </div>
           <div class="thread">
             <div class="num">03</div>
             <div>
               <h3>Counterexample-guided repair</h3>
-              <p>Isolating which feedback signal — a concrete Z3 counterexample, a raw test-failure string, or generic self-critique — makes an agent's self-repair converge fastest, with convergence measured by a solver rather than by the agent's report of success.</p>
+              <p>Isolating which feedback signal (a concrete Z3 counterexample, a raw test-failure string, or generic self-critique) makes an agent's self-repair converge fastest, with convergence measured by a solver rather than by the agent's report of success.</p>
             </div>
           </div>
         </div>
@@ -241,7 +241,7 @@
         <div class="item">
           <span class="kicker">Software · core developer</span>
           <h3>agentic-sdlc</h3>
-          <p>An LLM-agent framework for the software-development lifecycle, with a working evaluation harness for coding-agent reliability. I authored the majority of the codebase. Repository private — available on request.</p>
+          <p>An LLM-agent framework for the software-development lifecycle, with a working evaluation harness for coding-agent reliability. I authored the majority of the codebase. Repository private, available on request.</p>
         </div>
         <div class="item">
           <span class="kicker">Industry · core contributor · 2026</span>
@@ -254,7 +254,7 @@
           <p>Built features across an enterprise platform where engineers work alongside AI agents: the web workspace, the agent runtime and a built-in personal assistant.</p>
         </div>
         <div class="item">
-          <span class="kicker">Industry · Math Engineer · 2025–2026</span>
+          <span class="kicker">Industry · Math Engineer · 2025 to 2026</span>
           <h3>Correctness testing for numerical software</h3>
           <p>Wrote automated tests that check the mathematical results of a client's embedded numerical software against expected values, including error handling.</p>
         </div>
@@ -281,7 +281,7 @@
           <span class="kicker">Peer-reviewed journal · 2021</span>
           <h3><a href="https://doi.org/10.1007/s11356-021-16884-x" target="_blank" rel="noopener">Application and validation of a biotic ligand model for calculating acute toxicity of lead to Moina dubia in lakes of Hanoi, Vietnam</a></h3>
           <p>Hong Thi Pham, <strong>Long Duc Vu</strong>, Ngoc Chi Lê, Thu-Huong Thi Hoang</p>
-          <p><em>Environmental Science and Pollution Research</em> 29(28), 42005–42015, 2022 (online October 2021). DOI: <a href="https://doi.org/10.1007/s11356-021-16884-x" target="_blank" rel="noopener">10.1007/s11356-021-16884-x</a></p>
+          <p><em>Environmental Science and Pollution Research</em> 29(28), 42005-42015, 2022 (online October 2021). DOI: <a href="https://doi.org/10.1007/s11356-021-16884-x" target="_blank" rel="noopener">10.1007/s11356-021-16884-x</a></p>
           <p>Developed the mathematical validation method and wrote the code that tested the model against observed data.</p>
         </div>
       </section>
@@ -293,7 +293,7 @@
             <h3>Experience</h3>
             <!-- TODO: add start year / date range if you'd like it shown -->
             <div class="entry">
-              <div class="t"><a href="https://fpt.com/vi/ve-fpt" target="_blank" rel="noopener">FPT Software</a> — AI Engineer &amp; Technical Leader</div>
+              <div class="t"><a href="https://fpt.com/vi/ve-fpt" target="_blank" rel="noopener">FPT Software</a>, AI Engineer &amp; Technical Leader</div>
               <div class="d">LLM-agent platforms and an evaluation framework for coding-agent reliability. As Technical Leader: computing systems, floating-point computation, and algorithm-correctness verification for enterprise clients. Hanoi, Vietnam.</div>
             </div>
           </div>
